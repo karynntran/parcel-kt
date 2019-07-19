@@ -242,6 +242,7 @@ section {
 	}
 	.panel-2 {
 		background: #323232;
+		background-image: linear-gradient(to left, #323232, #000000);
 		color: #fff;
 		.project-content {
 			display: flex;
@@ -252,10 +253,12 @@ section {
 		}
 		.label {
 			font-family: 'EB Garamond', serif;
-			margin-right: 2em;
+			margin-right: 1em;
 			text-align: left;
 			display: inline-block;
 			width: 5em;
+			font-weight: 700;
+
 		}
 		.left-col,
 		.right-col {
@@ -264,15 +267,24 @@ section {
 		}
 		.left-col {
 			.title {
-				font-size: 2em;
+				font-size: 1.8em;
 				line-height: 1em;
 				margin-bottom: .5em;
+				letter-spacing: .1em;
+				text-transform: lowercase;
 			}
+
 			.client,
 			.team {
 				font-size: .9em;
 				font-family: 'Roboto', sans-serif;
 				font-weight: 300;
+				text-transform: lowercase;
+				em {
+					color: #ccc;
+					margin: 0 .2em;
+					font-weight: 700;
+				}
 			}
 			.team {
 				top: 2em;
@@ -289,6 +301,7 @@ section {
 				position: relative;
 				top: 6em;
 				font-size: .8em;
+				line-height: 1.6em;
 			}
 		}
 		.right-col {
@@ -319,6 +332,10 @@ section {
 				font-size: .75em;
 				top: 1em;
 				position: relative;
+				a {
+					color: #fff;
+					text-decoration: none;
+				}
 			}
 		}
 	}

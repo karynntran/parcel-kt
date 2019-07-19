@@ -222,6 +222,7 @@ section {
 }
 .work .panel-2 {
   background: #323232;
+  background-image: linear-gradient(to left, #323232, #000000);
   color: #fff;
 }
 .work .panel-2 .project-content {
@@ -233,10 +234,11 @@ section {
 }
 .work .panel-2 .label {
   font-family: "EB Garamond", serif;
-  margin-right: 2em;
+  margin-right: 1em;
   text-align: left;
   display: inline-block;
   width: 5em;
+  font-weight: 700;
 }
 .work .panel-2 .left-col,
 .work .panel-2 .right-col {
@@ -244,15 +246,24 @@ section {
   height: 100%;
 }
 .work .panel-2 .left-col .title {
-  font-size: 2em;
+  font-size: 1.8em;
   line-height: 1em;
   margin-bottom: 0.5em;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
 }
 .work .panel-2 .left-col .client,
 .work .panel-2 .left-col .team {
   font-size: 0.9em;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  text-transform: lowercase;
+}
+.work .panel-2 .left-col .client em,
+.work .panel-2 .left-col .team em {
+  color: #ccc;
+  margin: 0 0.2em;
+  font-weight: 700;
 }
 .work .panel-2 .left-col .team {
   top: 2em;
@@ -269,6 +280,7 @@ section {
   position: relative;
   top: 6em;
   font-size: 0.8em;
+  line-height: 1.6em;
 }
 .work .panel-2 .right-col {
   flex-grow: 1.5;
@@ -302,6 +314,10 @@ section {
   font-size: 0.75em;
   top: 1em;
   position: relative;
+}
+.work .panel-2 .right-col .url a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .contact {

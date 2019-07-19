@@ -51,8 +51,8 @@ const workDescription = (data) => {
 		</div>
 		<div class="right-col">
 			<div class="video">
-				<iframe src="https://player.vimeo.com/video/348948974" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-				<div class="url">+ See the experience.</div>
+				<iframe src="https://player.vimeo.com/video/${data.video}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+				<div class="url"><a href="${data.url}" target="_blank">+ See the experience.</a></div>
 			</div>
 		</div>
 		</div>
