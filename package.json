@@ -1,0 +1,28 @@
+{
+  "name": "parcel-kt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karynntran/parcel-kt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karynntran/parcel-kt/issues"
+  },
+  "homepage": "https://github.com/karynntran/parcel-kt#readme",
+  "devDependencies": {
+    "sass": "^1.22.1"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "parcel-bundler": "^1.12.3"
+  }
+}

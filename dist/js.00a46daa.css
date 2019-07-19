@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond:400,500i,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
+body {
+  background: #fff;
+  font-family: "EB Garamond", serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-size: 1vw;
+}
+
+section {
+  position: relative;
+}
+
+.content {
+  padding: 3em;
+}
+
+.about {
+  width: 100%;
+}
+.about .content {
+  display: flex;
+  font-size: 1.5em;
+}
+.about .title {
+  flex: 1;
+  font-weight: 700;
+}
+.about .intro-copy {
+  flex: 1;
+  text-align: left;
+}
+
+.work {
+  height: 60em;
+  width: 100%;
+  overflow: visible;
+  left: 0;
+}
+.work.shrink .content {
+  left: -100%;
+  transition: left 0.25s linear;
+}
+.work.shrink .panel-1 {
+  padding: 0;
+}
+.work.shrink .panel-1 .grid {
+  left: calc(100% + 3em);
+  position: relative;
+  width: 5em;
+  height: 60em;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  transition: left 1s ease-in-out 0.5s;
+  grid-gap: 0.3em;
+}
+.work.shrink .panel-1 .grid .project {
+  height: 6.4em;
+  width: 6.4em;
+  transition: all 0.5s linear 0.75s;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(1) {
+  grid-area: 1/1/2/2;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(2) {
+  grid-area: 2/1/3/2;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(3) {
+  grid-area: 3/1/4/2;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(4) {
+  grid-area: 4/1/5/2;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(5) {
+  grid-area: 5/1/6/2;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(6) {
+  grid-area: 6/1/7/2;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(7) {
+  grid-area: 7/1/8/2;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(8) {
+  grid-area: 9/1/10/2;
+}
+.work.shrink .panel-1 .grid .project:nth-of-type(9) {
+  grid-area: 8/1/9/2;
+}
+.work.shrink .panel-1 .grid .project.active .back .back-copy {
+  opacity: 0;
+}
+.work .content {
+  height: 100%;
+  width: 200%;
+  display: flex;
+  padding: 0;
+  left: 0;
+  position: relative;
+}
+.work .panel {
+  padding: 3em;
+  height: 100%;
+  width: 50%;
+  flex: 1;
+  flex-direction: row;
+}
+.work .panel-1 .grid {
+  left: 90%;
+  width: 100%;
+  height: 100%;
+  flex-grow: 5;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+  display: grid;
+}
+.work .panel-1 .grid .project {
+  position: relative;
+  overflow: hidden;
+}
+.work .panel-1 .grid .project:nth-of-type(1) {
+  background: #F5F5F5;
+  grid-area: 1/1/3/4;
+}
+.work .panel-1 .grid .project:nth-of-type(2) {
+  background: #D3D3D3;
+  grid-area: 3/1/7/4;
+}
+.work .panel-1 .grid .project:nth-of-type(3) {
+  background: #4A4A4A;
+  grid-area: 7/1/11/4;
+}
+.work .panel-1 .grid .project:nth-of-type(4) {
+  background: #313131;
+  grid-area: 1/4/5/7;
+}
+.work .panel-1 .grid .project:nth-of-type(5) {
+  background: #DCDCDC;
+  grid-area: 5/4/8/7;
+}
+.work .panel-1 .grid .project:nth-of-type(6) {
+  background: #B0B0B0;
+  grid-area: 8/4/11/7;
+}
+.work .panel-1 .grid .project:nth-of-type(7) {
+  background: #696969;
+  grid-area: 1/7/4/10;
+}
+.work .panel-1 .grid .project:nth-of-type(8) {
+  background: #DADADA;
+  grid-area: 7/7/11/10;
+}
+.work .panel-1 .grid .project:nth-of-type(9) {
+  background: #AAAAAA;
+  grid-area: 4/7/7/10;
+}
+.work .panel-1 .grid .project .front,
+.work .panel-1 .grid .project .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.work .panel-1 .grid .project .hero {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  filter: grayscale(100%);
+  opacity: 0.3;
+}
+.work .panel-1 .grid .project .back {
+  opacity: 0;
+}
+.work .panel-1 .grid .project .back .back-copy {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 7em;
+  text-align: left;
+}
+.work .panel-1 .grid .project.active .hero {
+  filter: grayscale(0);
+  opacity: 0.5;
+}
+.work .panel-1 .grid .project.active .front {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.work .panel-1 .grid .project.active .back {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+.work .panel-1 .grid .project.active .back .back-copy {
+  opacity: 0.5;
+}
+.work .panel-2 {
+  background: #323232;
+  color: #fff;
+}
+.work .panel-2 .project-content {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  margin-left: 5em;
+  font-size: 2em;
+}
+.work .panel-2 .label {
+  font-family: "EB Garamond", serif;
+  margin-right: 2em;
+  text-align: left;
+  display: inline-block;
+  width: 5em;
+}
+.work .panel-2 .left-col,
+.work .panel-2 .right-col {
+  flex: 1;
+  height: 100%;
+}
+.work .panel-2 .left-col .title {
+  font-size: 2em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+}
+.work .panel-2 .left-col .client,
+.work .panel-2 .left-col .team {
+  font-size: 0.9em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+.work .panel-2 .left-col .team {
+  top: 2em;
+  position: relative;
+}
+.work .panel-2 .left-col .divider {
+  width: 80%;
+  height: 0.05em;
+  border: 0.05em solid #fff;
+  position: relative;
+  top: 1em;
+}
+.work .panel-2 .left-col .description {
+  position: relative;
+  top: 6em;
+  font-size: 0.8em;
+}
+.work .panel-2 .right-col {
+  flex-grow: 1.5;
+  position: relative;
+}
+.work .panel-2 .right-col .video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+}
+.work .panel-2 .right-col iframe {
+  width: 80%;
+  height: 95%;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  opacity: 1;
+  box-shadow: 0.4em 0.4em 0.4em #000;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.work .panel-2 .right-col .url {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75em;
+  top: 1em;
+  position: relative;
+}
+
+.contact {
+  width: 100%;
+  height: 2em;
+}
+.contact .content {
+  margin: 0 auto;
+  display: flex;
+  width: 35em;
+}
+.contact .source {
+  text-align: center;
+  flex: 1;
+  font-size: 2em;
+}
+
+/*# sourceMappingURL=/js.00a46daa.css.map */
