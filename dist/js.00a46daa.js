@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/process/browser.js":[function(require,module,exports) {
+},{"./../dist/images/back.png":[["back.76c06e50.png","dist/images/back.png"],"dist/images/back.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -11007,10 +11007,10 @@ return jQuery;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.contact = exports.workDescription = exports.work = exports.about = exports.intro = exports.layout = void 0;
+exports.contact = exports.workDescription = exports.work = exports.skills = exports.intro = exports.layout = void 0;
 
 var layout = function layout() {
-  return "<section class=\"about\"></section>\n\t\t<section class=\"work\"></section>\n\t\t<section class=\"contact\"></section>";
+  return "<section class=\"intro\"></section>\n\t\t<section class=\"skills\"></section>\n\t\t<section class=\"work\"></section>\n\t\t<section class=\"contact\"></section>";
 };
 
 exports.layout = layout;
@@ -11021,17 +11021,19 @@ var intro = function intro(data) {
 
 exports.intro = intro;
 
-var about = function about(data) {
-  return "<div>about</div>";
+var skills = function skills(data) {
+  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"skills-title\">".concat(data.skillsTitle, "</div>\n\t\t\t<div class=\"skills-list\">\n\t\t\t\t").concat(data.skillsList.map(function (skill, idx) {
+    return "<div class=\"skill\">".concat(skill, "</div>");
+  }).join(''), "\n\t\t\t</div>\n\t\t</div>");
 };
 
-exports.about = about;
+exports.skills = skills;
 
 var work = function work(data) {
   var frontSections = data.projects.map(function (d, idx) {
     return "<div class=\"project\" id=\"".concat(idx, "\">\n\t\t\t<div class=\"hero\" style=\"background-image: url('../images/").concat(d.image, "')\"></div>\n\t\t\t<div class=\"front\">\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\t<div class=\"back-copy\" style=\"color: ").concat(d.color, "\">").concat(d.hover, "</div>\n\t\t\t</div>\n\t\t</div>");
   }).join('');
-  return "<div class=\"content\">\n\t\t<div class=\"panel panel-1\">\n\t\t\t<div class=\"grid\">".concat(frontSections, "</div>\n\t\t</div>\n\t\t<div class=\"panel panel-2\"></div>\n\t</div>");
+  return "<div class=\"content\">\n\t\t<div class=\"panel panel-1\">\n\t\t\t<div class=\"grid\">".concat(frontSections, "</div>\n\t\t</div>\n\t\t<div class=\"panel panel-2\">\n\t\t\t<div class=\"back-button\"></div>\n\t\t\t<div class=\"panel-2-inner\"></div>\n\t\t</div>\n\t</div>");
 };
 
 exports.work = work;
@@ -11044,7 +11046,7 @@ exports.workDescription = workDescription;
 
 var contact = function contact(data) {
   return "\n\t\t<div class=\"content\">\n\t\t\t".concat(data.sources.map(function (s, idx) {
-    return "<div class=\"source\">".concat(s.source, "</div>");
+    return "<div class=\"link\">\n\t\t\t\t\t<a href=\"".concat(s.link, "\" class=\"source\" target=\"_blank\">").concat(s.source, "</a>\n\t\t\t\t</div>");
   }).join(''), "\n\t\t</div>");
 };
 
@@ -11064,6 +11066,10 @@ var data = {
     'title': 'Hi, I\'m Karynn.',
     'introCopy': 'I\'m a software engineer, focusing on front end. I\'m a native New Yorker with six years of additional experience in consumer insights. I currently work at Quartz.'
   },
+  'skills': {
+    'skillsTitle': 'skills',
+    'skillsList': ['HTML5', 'Javascript / jQuery', 'CSS3 / Sass', 'Ruby / Rails', 'Backbone', 'React', 'Postgresql / MongoDB', 'Selenium / Nightwatch.js', 'Node', 'Adobe Creative Suite', 'Sketch', 'Qualitative research']
+  },
   'work': {
     'copy': 'work',
     'projects': [{
@@ -11076,6 +11082,7 @@ var data = {
       'title': 'Oil Innovation in the Supply Chain',
       'description': 'This interactive highlights the 6 steps of the oil supply chain and where oil plays a role in everyday life. Audio recordings played on a custom coded audio player, light touch animation and bright visual elements help bring this story to life.',
       'url': 'http://qzc.quartz.cc/sponsors/api-new/oil-bulletin/xxl/preview/',
+      'holdurl': 'https://qz.com/1668959/us-oil-production-has-doubled-since-2010-new-technology-is-making-sure-it-happens-safely/',
       'video': '348948508',
       'producer': 'Emily Chen',
       'brandcontent': 'Alexandra Owens',
@@ -11123,7 +11130,7 @@ var data = {
       'client': 'Hennessy',
       'title': 'What drives experts?',
       'description': 'Web-GL offers a 3D matrix experience that showcases where creative artists rank in leadership style. A quiz format allows users to plot themselves along with these "masters" on the matrix.',
-      'url': 'http://ads.qz.com/sponsors/hennessy/mastersalpha/xxl/index-external.html',
+      'url': 'https://qz.com/1668959/us-oil-production-has-doubled-since-2010-new-technology-is-making-sure-it-happens-safely/',
       'video': '348948549',
       'producer': 'Sam Silberberg',
       'brandcontent': 'Elise Mortensen',
@@ -11216,15 +11223,13 @@ var data = {
     'copy': 'contact',
     'sources': [{
       'source': 'linkedin',
-      'link': '',
-      'developer': 'Karynn Tran',
-      'notes': ''
+      'link': 'https://www.linkedin.com/in/karynneliotran/'
     }, {
       'source': 'github',
-      'link': ''
+      'link': 'https://github.com/karynntran'
     }, {
       'source': 'email',
-      'link': ''
+      'link': 'mailto:karynn.tran@gmail.com?subject=Hi Karynn, saying hey from your website!'
     }]
   }
 };
@@ -11251,17 +11256,25 @@ var sectionClick = function sectionClick() {
     if (e.type === 'click') {
       var projectIdx = (0, _jquery.default)(e.currentTarget).attr('id');
       (0, _jquery.default)('.work').addClass('shrink');
-      (0, _jquery.default)('.panel-2').html((0, _templates.workDescription)(_data.data.work.projects[projectIdx]));
+      (0, _jquery.default)('.panel-2-inner').html((0, _templates.workDescription)(_data.data.work.projects[projectIdx]));
     }
+  });
+};
+
+var backBtn = function backBtn() {
+  (0, _jquery.default)('.back-button').on('click', function () {
+    (0, _jquery.default)('.work').removeClass('shrink');
   });
 };
 
 (0, _jquery.default)(document).ready(function () {
   (0, _jquery.default)('.container').html((0, _templates.layout)());
-  (0, _jquery.default)('.about').html((0, _templates.intro)(_data.data.intro));
+  (0, _jquery.default)('.intro').html((0, _templates.intro)(_data.data.intro));
+  (0, _jquery.default)('.skills').html((0, _templates.skills)(_data.data.skills));
   (0, _jquery.default)('.work').html((0, _templates.work)(_data.data.work));
   (0, _jquery.default)('.contact').html((0, _templates.contact)(_data.data.contact));
   sectionClick();
+  backBtn();
 });
 },{"../scss/main.scss":"scss/main.scss","jquery":"node_modules/jquery/dist/jquery.js","../js/data":"js/data.js","../js/templates":"js/templates.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

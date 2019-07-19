@@ -36,31 +36,58 @@ section {
   padding: 3em;
 }
 
-.about {
+.intro {
   width: 100%;
 }
-.about .content {
+.intro .content {
   display: flex;
-  font-size: 1.5em;
+  font-size: 1.75em;
 }
-.about .title {
+.intro .title {
   flex: 1;
   font-weight: 700;
 }
-.about .intro-copy {
+.intro .intro-copy {
+  flex: 1;
+  text-align: left;
+}
+
+.skills {
+  font-size: 1.5em;
+}
+.skills .content {
+  width: 95%;
+  margin: 0 auto;
+  background-color: #F5F5F5;
+}
+.skills .skills-title {
+  text-align: left;
+  font-size: 1.4em;
+}
+.skills .skills-list {
+  font-family: "Roboto", sans-serif;
+  height: 10em;
+  color: #696969;
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+}
+.skills .skill {
+  height: 1em;
   flex: 1;
   text-align: left;
 }
 
 .work {
   height: 60em;
-  width: 100%;
   overflow: visible;
   left: 0;
 }
 .work.shrink .content {
   left: -100%;
-  transition: left 0.25s linear;
+  transition: left 0.2s linear;
 }
 .work.shrink .panel-1 {
   padding: 0;
@@ -69,15 +96,16 @@ section {
   left: calc(100% + 3em);
   position: relative;
   width: 5em;
-  height: 60em;
+  height: 80%;
+  top: 5%;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  transition: left 1s ease-in-out 0.5s;
+  transition: left 0.75s ease-in-out 0.5s;
   grid-gap: 0.3em;
 }
 .work.shrink .panel-1 .grid .project {
-  height: 6.4em;
-  width: 6.4em;
+  height: 5.73em;
+  width: 5.73em;
   transition: all 0.5s linear 0.75s;
 }
 .work.shrink .panel-1 .grid .project:nth-of-type(1) {
@@ -113,10 +141,11 @@ section {
 .work .content {
   height: 100%;
   width: 200%;
-  display: flex;
   padding: 0;
   left: 0;
   position: relative;
+  display: flex;
+  transition: left 0.2s linear;
 }
 .work .panel {
   padding: 3em;
@@ -221,15 +250,36 @@ section {
   opacity: 0.5;
 }
 .work .panel-2 {
-  background: #323232;
-  background-image: linear-gradient(to left, #323232, #000000);
   color: #fff;
+}
+.work .panel-2 .back-button {
+  position: absolute;
+  border-radius: 50%;
+  left: calc(100% - 8em);
+  z-index: 5;
+  height: 3.5em;
+  width: 3.5em;
+  top: 4em;
+  background: white url("/back.76c06e50.png") no-repeat;
+  background-size: 50%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  box-shadow: 0.3em 0.3em 0.3em #000;
+}
+.work .panel-2 .panel-2-inner {
+  background-image: linear-gradient(to left, #323232, #000000);
+  background: #323232;
+  width: calc(100% - 8em);
+  height: 100%;
+  position: relative;
+  left: 8em;
+  box-sizing: border-box;
+  padding: 2.5em;
 }
 .work .panel-2 .project-content {
   display: flex;
-  width: 90%;
+  width: 96%;
   height: 100%;
-  margin-left: 5em;
   font-size: 2em;
 }
 .work .panel-2 .label {
@@ -254,7 +304,7 @@ section {
 }
 .work .panel-2 .left-col .client,
 .work .panel-2 .left-col .team {
-  font-size: 0.9em;
+  font-size: 0.7em;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   text-transform: lowercase;
@@ -264,6 +314,7 @@ section {
   color: #ccc;
   margin: 0 0.2em;
   font-weight: 700;
+  font-size: 1.2em;
 }
 .work .panel-2 .left-col .team {
   top: 2em;
@@ -324,6 +375,32 @@ section {
   width: 100%;
   height: 2em;
 }
+.contact .link {
+  flex: 1;
+  position: relative;
+}
+.contact a {
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  display: block;
+}
+.contact a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -0.5em;
+  left: 50%;
+  height: 0.2em;
+  width: 0;
+  background: transparent;
+  transition: width 0.5s ease, background-color 0.5s ease, left 0.5s ease;
+}
+.contact .link:hover a:after {
+  width: 100%;
+  left: 0;
+  background: #ccc;
+}
 .contact .content {
   margin: 0 auto;
   display: flex;
@@ -331,7 +408,6 @@ section {
 }
 .contact .source {
   text-align: center;
-  flex: 1;
   font-size: 2em;
 }
 

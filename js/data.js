@@ -1,9 +1,26 @@
-import { intro, about, work, contact } from './templates';
+import { intro, skills, work, contact } from './templates';
 
 const data = {
 	'intro': {
 		'title': 'Hi, I\'m Karynn.',
 		'introCopy': 'I\'m a software engineer, focusing on front end. I\'m a native New Yorker with six years of additional experience in consumer insights. I currently work at Quartz.'
+	},
+	'skills': {
+		'skillsTitle': 'skills',
+		'skillsList': [
+			'HTML5',
+			'Javascript / jQuery',
+			'CSS3 / Sass',
+			'Ruby / Rails',
+			'Backbone',
+			'React',
+			'Postgresql / MongoDB',
+			'Selenium / Nightwatch.js',
+			'Node',
+			'Adobe Creative Suite',
+			'Sketch',
+			'Qualitative research'
+		]
 	},
 	'work': {
 		'copy': 'work',
@@ -18,6 +35,7 @@ const data = {
 				'title': 'Oil Innovation in the Supply Chain',
 				'description': 'This interactive highlights the 6 steps of the oil supply chain and where oil plays a role in everyday life. Audio recordings played on a custom coded audio player, light touch animation and bright visual elements help bring this story to life.',
 				'url': 'http://qzc.quartz.cc/sponsors/api-new/oil-bulletin/xxl/preview/',
+				'holdurl': 'https://qz.com/1668959/us-oil-production-has-doubled-since-2010-new-technology-is-making-sure-it-happens-safely/',
 				'video': '348948508',
 				'producer': 'Emily Chen',
 				'brandcontent': 'Alexandra Owens',
@@ -68,7 +86,7 @@ const data = {
 				'client': 'Hennessy',
 				'title': 'What drives experts?',
 				'description': 'Web-GL offers a 3D matrix experience that showcases where creative artists rank in leadership style. A quiz format allows users to plot themselves along with these "masters" on the matrix.',
-				'url': 'http://ads.qz.com/sponsors/hennessy/mastersalpha/xxl/index-external.html',
+				'url': 'https://qz.com/1668959/us-oil-production-has-doubled-since-2010-new-technology-is-making-sure-it-happens-safely/',
 				'video': '348948549',
 				'producer': 'Sam Silberberg',
 				'brandcontent': 'Elise Mortensen',
@@ -168,17 +186,15 @@ const data = {
 		'sources': [
 			{
 				'source': 'linkedin',
-				'link': '',
-				'developer': 'Karynn Tran',
-				'notes': ''
+				'link': 'https://www.linkedin.com/in/karynneliotran/',
 			},
 			{
 				'source': 'github',
-				'link': ''
+				'link': 'https://github.com/karynntran'
 			},
 			{
 				'source': 'email',
-				'link': ''
+				'link': 'mailto:karynn.tran@gmail.com?subject=Hi Karynn, saying hey from your website!'
 			},
 		]
 	}

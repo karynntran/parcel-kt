@@ -1,5 +1,6 @@
 const layout = () => {
-	return `<section class="about"></section>
+	return `<section class="intro"></section>
+		<section class="skills"></section>
 		<section class="work"></section>
 		<section class="contact"></section>`
 }
@@ -12,8 +13,16 @@ const intro = (data) => {
 		</div>`
 }
 
-const about = (data) => {
-	return `<div>about</div>`
+const skills = (data) => {
+	return `
+		<div class="content">
+			<div class="skills-title">${data.skillsTitle}</div>
+			<div class="skills-list">
+				${data.skillsList.map((skill,idx) => {
+					return `<div class="skill">${skill}</div>`
+				}).join('')}
+			</div>
+		</div>`
 }
 
 const work = (data) => {
@@ -32,7 +41,10 @@ const work = (data) => {
 		<div class="panel panel-1">
 			<div class="grid">${frontSections}</div>
 		</div>
-		<div class="panel panel-2"></div>
+		<div class="panel panel-2">
+			<div class="back-button"></div>
+			<div class="panel-2-inner"></div>
+		</div>
 	</div>`
 }
 
@@ -63,7 +75,9 @@ const contact = (data) => {
 	return `
 		<div class="content">
 			${data.sources.map((s,idx) => {
-				return `<div class="source">${s.source}</div>`
+				return `<div class="link">
+					<a href="${s.link}" class="source" target="_blank">${s.source}</a>
+				</div>`
 			}).join('')}
 		</div>`
 }
@@ -71,7 +85,7 @@ const contact = (data) => {
 export {
 	layout,
 	intro,
-	about,
+	skills,
 	work,
 	workDescription,
 	contact
