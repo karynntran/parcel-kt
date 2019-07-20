@@ -1,15 +1,31 @@
 const layout = () => {
 	return `<section class="intro"></section>
-		<section class="skills"></section>
+		<section class="about"></section>
 		<section class="work"></section>
+		<section class="skills"></section>
 		<section class="contact"></section>`
 }
 
 const intro = (data) => {
 	return `
+		<div class="bg" style="background-image: url('../images/yarn.jpg')"></div>
 		<div class="content">
-			<div class="title">${data.title}</div>
-			<div class="intro-copy">${data.introCopy}</div>
+			<div class="intro-name">
+				<div class="first">karynn</div>
+				<div class="divider"></div>
+				<div class="last">elio tran</div>
+			</div>
+			<div class="subcopy">${data.subcopy}</div>
+		</div>`
+}
+
+const about = (data) => {
+	return `
+		<div class="content">
+			<div class="about-copy">
+				<div class="craft">${data.craft}</div>
+				<div class="about">${data.about}</div>
+			</div>
 		</div>`
 }
 
@@ -74,16 +90,20 @@ const workDescription = (data) => {
 const contact = (data) => {
 	return `
 		<div class="content">
-			${data.sources.map((s,idx) => {
-				return `<div class="link">
-					<a href="${s.link}" class="source" target="_blank">${s.source}</a>
-				</div>`
-			}).join('')}
+			<div class="contact-me">contact me!</div>
+			<div class="sources">
+				${data.sources.map((s,idx) => {
+					return `<div class="link">
+						<a href="${s.link}" class="source" target="_blank">${s.source}</a>
+					</div>`
+				}).join('')}
+			</div>
 		</div>`
 }
 
 export {
 	layout,
+	about,
 	intro,
 	skills,
 	work,

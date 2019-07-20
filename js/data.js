@@ -1,9 +1,16 @@
-import { intro, skills, work, contact } from './templates';
-
 const data = {
 	'intro': {
-		'title': 'Hi, I\'m Karynn.',
-		'introCopy': 'I\'m a software engineer, focusing on front end. I\'m a native New Yorker with six years of additional experience in consumer insights. I currently work at Quartz.'
+		'subcopy': 'software engineer. frontend. new yorker. currently at quartz.'
+	},
+	'about': {
+		'title': 'Code is Craft.',
+		'craft': 'Growing up, my favorite activity was arts and crafts - painting, drawing, crocheting, cake decorating, you name it. I especially loved the idea of creating anything out of nothing: a blank canvas, a ball of yarn, a bowl of flour, sugar and butter. There\'s a formula you start with - certain brushstrokes or stitches or a recipe - but after that, anything creative goes. For me, code is the same way.',
+		'about': 'I\'m a software engineer with a focus on frontend. While I mainly write in Javascript and CSS today, I used to write stories. My career began in consumer research as a qualitative storyteller: I took hundreds of journeys through the lives of consumers and surfaced fascinating insights about their relationships with brands. Today, as an engineer, I strive to keep the user front and center, building engaging digital experiences through beautiful design, clean code, empathy and thoughtful user experience.',
+		'codeIs': [
+			'creativity',
+			'craft',
+			''
+		]
 	},
 	'skills': {
 		'skillsTitle': 'skills',

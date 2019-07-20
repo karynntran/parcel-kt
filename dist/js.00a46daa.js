@@ -11001,70 +11001,22 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{"process":"node_modules/process/browser.js"}],"js/templates.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.contact = exports.workDescription = exports.work = exports.skills = exports.intro = exports.layout = void 0;
-
-var layout = function layout() {
-  return "<section class=\"intro\"></section>\n\t\t<section class=\"skills\"></section>\n\t\t<section class=\"work\"></section>\n\t\t<section class=\"contact\"></section>";
-};
-
-exports.layout = layout;
-
-var intro = function intro(data) {
-  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"title\">".concat(data.title, "</div>\n\t\t\t<div class=\"intro-copy\">").concat(data.introCopy, "</div>\n\t\t</div>");
-};
-
-exports.intro = intro;
-
-var skills = function skills(data) {
-  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"skills-title\">".concat(data.skillsTitle, "</div>\n\t\t\t<div class=\"skills-list\">\n\t\t\t\t").concat(data.skillsList.map(function (skill, idx) {
-    return "<div class=\"skill\">".concat(skill, "</div>");
-  }).join(''), "\n\t\t\t</div>\n\t\t</div>");
-};
-
-exports.skills = skills;
-
-var work = function work(data) {
-  var frontSections = data.projects.map(function (d, idx) {
-    return "<div class=\"project\" id=\"".concat(idx, "\">\n\t\t\t<div class=\"hero\" style=\"background-image: url('../images/").concat(d.image, "')\"></div>\n\t\t\t<div class=\"front\">\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\t<div class=\"back-copy\" style=\"color: ").concat(d.color, "\">").concat(d.hover, "</div>\n\t\t\t</div>\n\t\t</div>");
-  }).join('');
-  return "<div class=\"content\">\n\t\t<div class=\"panel panel-1\">\n\t\t\t<div class=\"grid\">".concat(frontSections, "</div>\n\t\t</div>\n\t\t<div class=\"panel panel-2\">\n\t\t\t<div class=\"back-button\"></div>\n\t\t\t<div class=\"panel-2-inner\"></div>\n\t\t</div>\n\t</div>");
-};
-
-exports.work = work;
-
-var workDescription = function workDescription(data) {
-  return "<div class=\"project-content\">\n\t\t<div class=\"left-col\">\n\t\t\t<div class=\"title\">".concat(data.title, "</div>\n\t\t\t<div class=\"client\">by <em>").concat(data.company, " </em> for <em>").concat(data.client, "</em></div>\n\t\t\t<div class=\"divider\"></div>\n\t\t\t<ul class=\"team\">\n\t\t\t\t<li class=\"designer\"><div class=\"label\">designer</div>").concat(data.design, "</li>\n\t\t\t\t<li class=\"brandcontent\"><div class=\"label\">content</div>").concat(data.brandcontent, "</li>\t\n\t\t\t\t<li class=\"producer\"><div class=\"label\">producer</div>").concat(data.producer, "</li>\t\n\t\t\t</ul>\n\t\t\t<div class=\"description\">").concat(data.description, "</div>\n\t\t</div>\n\t\t<div class=\"right-col\">\n\t\t\t<div class=\"video\">\n\t\t\t\t<iframe src=\"https://player.vimeo.com/video/").concat(data.video, "\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen></iframe>\n\t\t\t\t<div class=\"url\"><a href=\"").concat(data.url, "\" target=\"_blank\">+ See the experience.</a></div>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t");
-};
-
-exports.workDescription = workDescription;
-
-var contact = function contact(data) {
-  return "\n\t\t<div class=\"content\">\n\t\t\t".concat(data.sources.map(function (s, idx) {
-    return "<div class=\"link\">\n\t\t\t\t\t<a href=\"".concat(s.link, "\" class=\"source\" target=\"_blank\">").concat(s.source, "</a>\n\t\t\t\t</div>");
-  }).join(''), "\n\t\t</div>");
-};
-
-exports.contact = contact;
-},{}],"js/data.js":[function(require,module,exports) {
+},{"process":"node_modules/process/browser.js"}],"js/data.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.data = void 0;
-
-var _templates = require("./templates");
-
 var data = {
   'intro': {
-    'title': 'Hi, I\'m Karynn.',
-    'introCopy': 'I\'m a software engineer, focusing on front end. I\'m a native New Yorker with six years of additional experience in consumer insights. I currently work at Quartz.'
+    'subcopy': 'software engineer. frontend. new yorker. currently at quartz.'
+  },
+  'about': {
+    'title': 'Code is Craft.',
+    'craft': 'Growing up, my favorite activity was arts and crafts - painting, drawing, crocheting, cake decorating, you name it. I especially loved the idea of creating anything out of nothing: a blank canvas, a ball of yarn, a bowl of flour, sugar and butter. There\'s a formula you start with - certain brushstrokes or stitches or a recipe - but after that, anything creative goes. For me, code is the same way.',
+    'about': 'I\'m a software engineer with a focus on frontend. While I mainly write in Javascript and CSS today, I used to write stories. My career began in consumer research as a qualitative storyteller: I took hundreds of journeys through the lives of consumers and surfaced fascinating insights about their relationships with brands. Today, as an engineer, I strive to keep the user front and center, building engaging digital experiences through beautiful design, clean code, empathy and thoughtful user experience.',
+    'codeIs': ['creativity', 'craft', '']
   },
   'skills': {
     'skillsTitle': 'skills',
@@ -11234,7 +11186,63 @@ var data = {
   }
 };
 exports.data = data;
-},{"./templates":"js/templates.js"}],"js/index.js":[function(require,module,exports) {
+},{}],"js/templates.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.contact = exports.workDescription = exports.work = exports.skills = exports.intro = exports.about = exports.layout = void 0;
+
+var layout = function layout() {
+  return "<section class=\"intro\"></section>\n\t\t<section class=\"about\"></section>\n\t\t<section class=\"work\"></section>\n\t\t<section class=\"skills\"></section>\n\t\t<section class=\"contact\"></section>";
+};
+
+exports.layout = layout;
+
+var intro = function intro(data) {
+  return "\n\t\t<div class=\"bg\" style=\"background-image: url('../images/yarn.jpg')\"></div>\n\t\t<div class=\"content\">\n\t\t\t<div class=\"intro-name\">\n\t\t\t\t<div class=\"first\">karynn</div>\n\t\t\t\t<div class=\"divider\"></div>\n\t\t\t\t<div class=\"last\">elio tran</div>\n\t\t\t</div>\n\t\t\t<div class=\"subcopy\">".concat(data.subcopy, "</div>\n\t\t</div>");
+};
+
+exports.intro = intro;
+
+var about = function about(data) {
+  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"about-copy\">\n\t\t\t\t<div class=\"craft\">".concat(data.craft, "</div>\n\t\t\t\t<div class=\"about\">").concat(data.about, "</div>\n\t\t\t</div>\n\t\t</div>");
+};
+
+exports.about = about;
+
+var skills = function skills(data) {
+  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"skills-title\">".concat(data.skillsTitle, "</div>\n\t\t\t<div class=\"skills-list\">\n\t\t\t\t").concat(data.skillsList.map(function (skill, idx) {
+    return "<div class=\"skill\">".concat(skill, "</div>");
+  }).join(''), "\n\t\t\t</div>\n\t\t</div>");
+};
+
+exports.skills = skills;
+
+var work = function work(data) {
+  var frontSections = data.projects.map(function (d, idx) {
+    return "<div class=\"project\" id=\"".concat(idx, "\">\n\t\t\t<div class=\"hero\" style=\"background-image: url('../images/").concat(d.image, "')\"></div>\n\t\t\t<div class=\"front\">\n\t\t\t</div>\n\t\t\t<div class=\"back\">\n\t\t\t\t<div class=\"back-copy\" style=\"color: ").concat(d.color, "\">").concat(d.hover, "</div>\n\t\t\t</div>\n\t\t</div>");
+  }).join('');
+  return "<div class=\"content\">\n\t\t<div class=\"panel panel-1\">\n\t\t\t<div class=\"grid\">".concat(frontSections, "</div>\n\t\t</div>\n\t\t<div class=\"panel panel-2\">\n\t\t\t<div class=\"back-button\"></div>\n\t\t\t<div class=\"panel-2-inner\"></div>\n\t\t</div>\n\t</div>");
+};
+
+exports.work = work;
+
+var workDescription = function workDescription(data) {
+  return "<div class=\"project-content\">\n\t\t<div class=\"left-col\">\n\t\t\t<div class=\"title\">".concat(data.title, "</div>\n\t\t\t<div class=\"client\">by <em>").concat(data.company, " </em> for <em>").concat(data.client, "</em></div>\n\t\t\t<div class=\"divider\"></div>\n\t\t\t<ul class=\"team\">\n\t\t\t\t<li class=\"designer\"><div class=\"label\">designer</div>").concat(data.design, "</li>\n\t\t\t\t<li class=\"brandcontent\"><div class=\"label\">content</div>").concat(data.brandcontent, "</li>\t\n\t\t\t\t<li class=\"producer\"><div class=\"label\">producer</div>").concat(data.producer, "</li>\t\n\t\t\t</ul>\n\t\t\t<div class=\"description\">").concat(data.description, "</div>\n\t\t</div>\n\t\t<div class=\"right-col\">\n\t\t\t<div class=\"video\">\n\t\t\t\t<iframe src=\"https://player.vimeo.com/video/").concat(data.video, "\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen></iframe>\n\t\t\t\t<div class=\"url\"><a href=\"").concat(data.url, "\" target=\"_blank\">+ See the experience.</a></div>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t");
+};
+
+exports.workDescription = workDescription;
+
+var contact = function contact(data) {
+  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"contact-me\">contact me!</div>\n\t\t\t<div class=\"sources\">\n\t\t\t\t".concat(data.sources.map(function (s, idx) {
+    return "<div class=\"link\">\n\t\t\t\t\t\t<a href=\"".concat(s.link, "\" class=\"source\" target=\"_blank\">").concat(s.source, "</a>\n\t\t\t\t\t</div>");
+  }).join(''), "\n\t\t\t</div>\n\t\t</div>");
+};
+
+exports.contact = contact;
+},{}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 require("../scss/main.scss");
@@ -11247,11 +11255,13 @@ var _templates = require("../js/templates");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var section = 1;
+
 var sectionClick = function sectionClick() {
   (0, _jquery.default)('.project').on('click mouseover', function (e) {
     var id = (0, _jquery.default)(e.currentTarget).attr('id');
-    (0, _jquery.default)('.project').removeClass('active');
-    (0, _jquery.default)(e.currentTarget).addClass('active');
+    (0, _jquery.default)('.project').removeClass('selected');
+    (0, _jquery.default)(e.currentTarget).addClass('selected');
 
     if (e.type === 'click') {
       var projectIdx = (0, _jquery.default)(e.currentTarget).attr('id');
@@ -11267,14 +11277,44 @@ var backBtn = function backBtn() {
   });
 };
 
+var scrolling = function scrolling() {
+  var sections = (0, _jquery.default)('section').length;
+  var windowHeight = (0, _jquery.default)(window).height(); // let scrollTop = $(window).scrollTop();
+
+  var sectionHeight = windowHeight / sections;
+  var frameHeight = (0, _jquery.default)('.container').height(); // console.log(sectionHeight, scrollTop);
+
+  (0, _jquery.default)(window).on('scroll', function (e) {
+    var ypos = (0, _jquery.default)(window).scrollTop();
+    var percent = ypos / windowHeight * 100;
+    var sect = Math.floor(ypos / frameHeight * 5 + .75);
+    console.log(sect);
+
+    if (!(0, _jquery.default)('section').eq(sect).hasClass('active')) {
+      (0, _jquery.default)('section').eq(sect).addClass('active');
+    }
+  }); // $(window).on('scroll', function(){
+  // 	let s = $(window).scrollTop(),
+  // 		d = $(document).height(),
+  // 		c = $(window).height();
+  // 	let scrollPercent = (s / (d - c)) * 100;
+  // 	console.log(scrollPercent);
+  // })
+};
+
 (0, _jquery.default)(document).ready(function () {
   (0, _jquery.default)('.container').html((0, _templates.layout)());
   (0, _jquery.default)('.intro').html((0, _templates.intro)(_data.data.intro));
+  (0, _jquery.default)('.about').html((0, _templates.about)(_data.data.about));
   (0, _jquery.default)('.skills').html((0, _templates.skills)(_data.data.skills));
   (0, _jquery.default)('.work').html((0, _templates.work)(_data.data.work));
   (0, _jquery.default)('.contact').html((0, _templates.contact)(_data.data.contact));
   sectionClick();
   backBtn();
+  scrolling();
+  setTimeout(function () {
+    (0, _jquery.default)('.intro').addClass('active');
+  }, 500);
 });
 },{"../scss/main.scss":"scss/main.scss","jquery":"node_modules/jquery/dist/jquery.js","../js/data":"js/data.js","../js/templates":"js/templates.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

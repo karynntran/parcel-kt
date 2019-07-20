@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=EB+Garamond:400,500i,700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&display=swap");
 body {
   background: #fff;
-  font-family: "EB Garamond", serif;
+  font-family: "Nanum Gothic", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -21,27 +22,108 @@ li {
 
 .container {
   width: 100%;
-  height: 100%;
+  height: auto;
   position: absolute;
   display: flex;
   flex-direction: column;
   font-size: 1vw;
+  background-color: #fff;
+  overflow: hidden;
 }
 
 section {
   position: relative;
+  height: 55em;
+  opacity: 0;
+}
+section.active {
+  opacity: 1;
+  transition: opacity 0.25s ease-in 0.25s;
 }
 
 .content {
-  padding: 3em;
+  padding: 3em 5em;
 }
 
 .intro {
   width: 100%;
 }
 .intro .content {
+  width: 100%;
+  height: 100%;
   display: flex;
   font-size: 1.75em;
+}
+.intro .bg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.intro .subcopy {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2em;
+  font-size: 0.7em;
+}
+.intro .intro-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12em;
+  height: 10em;
+}
+.intro .first,
+.intro .last {
+  overflow: hidden;
+  font-size: 3em;
+  text-align: justify;
+  background-color: #f6f6f6;
+  position: relative;
+  color: #000;
+}
+.intro .first {
+  letter-spacing: 0.15em;
+  top: 1.2em;
+}
+.intro .last {
+  top: -1.2em;
+}
+.intro .divider {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 0.3em;
+  border-bottom: 0.3em solid #000;
+}
+.intro .divider:before, .intro .divider:after {
+  content: "";
+  position: absolute;
+  background-color: #f6f6f6;
+  height: 4em;
+  width: 100%;
+}
+.intro .divider:before {
+  bottom: -0.25em;
+}
+.intro .divider:after {
+  top: 0.25em;
+}
+.intro.active .first,
+.intro.active .last {
+  top: 0;
+  transition: top 1s ease-in 0.25s;
+}
+.intro.active .divider:before, .intro.active .divider:after {
+  height: 0;
+  transition: height 1s ease-in 0.25s;
 }
 .intro .title {
   flex: 1;
@@ -52,11 +134,29 @@ section {
   text-align: left;
 }
 
-.skills {
-  font-size: 1.5em;
+.about .content {
+  text-align: center;
+  margin: 0 auto;
 }
+.about .about-copy {
+  font-size: 1.5em;
+  line-height: 2em;
+  width: 75%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.about .craft,
+.about .about {
+  margin: 1em auto;
+}
+
 .skills .content {
+  font-size: 1.5em;
   width: 95%;
+  height: 100%;
   margin: 0 auto;
   background-color: #F5F5F5;
 }
@@ -65,8 +165,7 @@ section {
   font-size: 1.4em;
 }
 .skills .skills-list {
-  font-family: "Roboto", sans-serif;
-  height: 10em;
+  height: 14em;
   color: #696969;
   padding: 2em;
   display: grid;
@@ -81,7 +180,6 @@ section {
 }
 
 .work {
-  height: 60em;
   overflow: visible;
   left: 0;
 }
@@ -93,7 +191,7 @@ section {
   padding: 0;
 }
 .work.shrink .panel-1 .grid {
-  left: calc(100% + 3em);
+  left: calc(100% - 42.5em);
   position: relative;
   width: 5em;
   height: 80%;
@@ -104,8 +202,8 @@ section {
   grid-gap: 0.3em;
 }
 .work.shrink .panel-1 .grid .project {
-  height: 5.73em;
-  width: 5.73em;
+  height: 4.7em;
+  width: 4.7em;
   transition: all 0.5s linear 0.75s;
 }
 .work.shrink .panel-1 .grid .project:nth-of-type(1) {
@@ -135,7 +233,7 @@ section {
 .work.shrink .panel-1 .grid .project:nth-of-type(9) {
   grid-area: 8/1/9/2;
 }
-.work.shrink .panel-1 .grid .project.active .back .back-copy {
+.work.shrink .panel-1 .grid .project.selected .back .back-copy {
   opacity: 0;
 }
 .work .content {
@@ -155,34 +253,36 @@ section {
   flex-direction: row;
 }
 .work .panel-1 .grid {
-  left: 90%;
-  width: 100%;
+  left: 0;
+  width: 90%;
   height: 100%;
   flex-grow: 5;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1em;
   display: grid;
+  margin: 0 auto;
 }
 .work .panel-1 .grid .project {
   position: relative;
   overflow: hidden;
+  opacity: 0;
 }
 .work .panel-1 .grid .project:nth-of-type(1) {
-  background: #F5F5F5;
-  grid-area: 1/1/3/4;
+  background: #DADADA;
+  grid-area: 7/7/11/10;
 }
 .work .panel-1 .grid .project:nth-of-type(2) {
-  background: #D3D3D3;
-  grid-area: 3/1/7/4;
-}
-.work .panel-1 .grid .project:nth-of-type(3) {
-  background: #4A4A4A;
-  grid-area: 7/1/11/4;
-}
-.work .panel-1 .grid .project:nth-of-type(4) {
   background: #313131;
   grid-area: 1/4/5/7;
+}
+.work .panel-1 .grid .project:nth-of-type(3) {
+  background: #696969;
+  grid-area: 1/7/4/10;
+}
+.work .panel-1 .grid .project:nth-of-type(4) {
+  background: #D3D3D3;
+  grid-area: 3/1/7/4;
 }
 .work .panel-1 .grid .project:nth-of-type(5) {
   background: #DCDCDC;
@@ -193,12 +293,12 @@ section {
   grid-area: 8/4/11/7;
 }
 .work .panel-1 .grid .project:nth-of-type(7) {
-  background: #696969;
-  grid-area: 1/7/4/10;
+  background: #4A4A4A;
+  grid-area: 7/1/11/4;
 }
 .work .panel-1 .grid .project:nth-of-type(8) {
-  background: #DADADA;
-  grid-area: 7/7/11/10;
+  background: #F5F5F5;
+  grid-area: 1/1/3/4;
 }
 .work .panel-1 .grid .project:nth-of-type(9) {
   background: #AAAAAA;
@@ -231,22 +331,23 @@ section {
   width: 100%;
   height: 100%;
   position: relative;
-  font-size: 7em;
+  font-size: 5.75em;
   text-align: left;
+  margin-left: 0.2em;
 }
-.work .panel-1 .grid .project.active .hero {
+.work .panel-1 .grid .project.selected .hero {
   filter: grayscale(0);
   opacity: 0.5;
 }
-.work .panel-1 .grid .project.active .front {
+.work .panel-1 .grid .project.selected .front {
   opacity: 0;
   transition: opacity 0.5s ease-in;
 }
-.work .panel-1 .grid .project.active .back {
+.work .panel-1 .grid .project.selected .back {
   opacity: 1;
   transition: opacity 0.5s ease-in;
 }
-.work .panel-1 .grid .project.active .back .back-copy {
+.work .panel-1 .grid .project.selected .back .back-copy {
   opacity: 0.5;
 }
 .work .panel-2 {
@@ -330,7 +431,7 @@ section {
 .work .panel-2 .left-col .description {
   position: relative;
   top: 6em;
-  font-size: 0.8em;
+  font-size: 0.6em;
   line-height: 1.6em;
 }
 .work .panel-2 .right-col {
@@ -370,10 +471,55 @@ section {
   color: #fff;
   text-decoration: none;
 }
+.work.active .panel-1 .grid .project {
+  opacity: 1;
+}
+.work.active .panel-1 .grid .project:nth-of-type(1) {
+  transition: opacity 0.25s ease-in 0.2s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(2) {
+  transition: opacity 0.25s ease-in 0.4s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(3) {
+  transition: opacity 0.25s ease-in 0.6s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(4) {
+  transition: opacity 0.25s ease-in 0.8s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(5) {
+  transition: opacity 0.25s ease-in 1s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(6) {
+  transition: opacity 0.25s ease-in 1.2s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(7) {
+  transition: opacity 0.25s ease-in 1.4s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(8) {
+  transition: opacity 0.25s ease-in 1.6s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(9) {
+  transition: opacity 0.25s ease-in 1.8s;
+}
+.work.active .panel-1 .grid .project:nth-of-type(10) {
+  transition: opacity 0.25s ease-in 2s;
+}
 
 .contact {
   width: 100%;
-  height: 2em;
+}
+.contact .content {
+  margin: 0 auto;
+  width: 45em;
+}
+.contact .contact-me {
+  text-align: center;
+  display: block;
+  font-size: 3em;
+  margin-bottom: 3em;
+}
+.contact .sources {
+  display: flex;
 }
 .contact .link {
   flex: 1;
@@ -401,14 +547,83 @@ section {
   left: 0;
   background: #ccc;
 }
-.contact .content {
-  margin: 0 auto;
-  display: flex;
-  width: 35em;
-}
 .contact .source {
   text-align: center;
   font-size: 2em;
+}
+
+@media all and (max-width: 480px) {
+  .container {
+    font-size: 2vw;
+  }
+
+  section {
+    height: 100em;
+  }
+
+  .intro .bg {
+    background-position: 0 0;
+    transform: rotate(360deg);
+  }
+  .intro .subcopy {
+    width: 70%;
+  }
+  .intro .intro-name {
+    top: 20%;
+  }
+  .intro .first,
+.intro .last {
+    background-color: #f0f0f0;
+  }
+  .intro .divider:before, .intro .divider:after {
+    background-color: #f0f0f0;
+  }
+
+  .work.shrink .panel-1 .grid {
+    left: calc(100% - 16.5em);
+    width: 7em;
+  }
+  .work.shrink .panel-1 .grid .project {
+    width: 6em;
+    height: 6em;
+  }
+  .work .panel-1 .grid {
+    display: block;
+  }
+  .work .panel-1 .grid .project {
+    display: inline-block;
+    width: 50%;
+    height: calc(100% / 6);
+  }
+  .work .panel-2 .panel-2-inner {
+    width: calc(100% - 3em);
+  }
+  .work .panel-2 .panel-2-inner .project-content {
+    flex-direction: column;
+    font-size: 2em;
+    height: 90%;
+    top: 10%;
+    position: relative;
+  }
+  .work .panel-2 .panel-2-inner .left-col {
+    font-size: 1.2em;
+  }
+  .work .panel-2 .back-button {
+    left: calc(100% - 6em);
+    z-index: 5;
+    height: 4.5em;
+    width: 4.5em;
+  }
+
+  .skills .skills-list {
+    height: 80%;
+    display: block;
+    margin: 1em 0;
+  }
+  .skills .skill {
+    width: 100%;
+    height: calc(100% / 12);
+  }
 }
 
 /*# sourceMappingURL=/js.00a46daa.css.map */
