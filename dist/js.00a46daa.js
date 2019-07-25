@@ -11201,7 +11201,7 @@ var layout = function layout() {
 exports.layout = layout;
 
 var intro = function intro(data) {
-  return "\n\t\t<div class=\"bg\" style=\"background-image: url('../images/yarn.jpg')\"></div>\n\t\t<div class=\"content\">\n\t\t\t<div class=\"intro-name\">\n\t\t\t\t<div class=\"first\">karynn</div>\n\t\t\t\t<div class=\"divider\"></div>\n\t\t\t\t<div class=\"last\">elio tran</div>\n\t\t\t</div>\n\t\t\t<div class=\"subcopy\">".concat(data.subcopy, "</div>\n\t\t</div>");
+  return "\n\t\t<div class=\"bg\"></div>\n\t\t<div class=\"content\">\n\t\t\t<div class=\"intro-name\">\n\t\t\t\t<div class=\"first\">karynn</div>\n\t\t\t\t<div class=\"divider\"></div>\n\t\t\t\t<div class=\"last\">elio tran</div>\n\t\t\t</div>\n\t\t\t<div class=\"subcopy\">".concat(data.subcopy, "</div>\n\t\t</div>");
 };
 
 exports.intro = intro;

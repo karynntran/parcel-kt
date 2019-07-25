@@ -8,7 +8,7 @@ const layout = () => {
 
 const intro = (data) => {
 	return `
-		<div class="bg" style="background-image: url('../images/yarn.jpg')"></div>
+		<div class="bg"></div>
 		<div class="content">
 			<div class="intro-name">
 				<div class="first">karynn</div>
