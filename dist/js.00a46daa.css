@@ -20,6 +20,11 @@ li {
   box-sizing: border-box;
 }
 
+.serif {
+  font-size: 1.7em;
+  font-family: "EB Garamond", serif;
+}
+
 .container {
   width: 100%;
   height: auto;
@@ -81,10 +86,10 @@ section.active {
 }
 .intro .first,
 .intro .last {
+  background-color: #f4f4f4;
   overflow: hidden;
   font-size: 3em;
   text-align: justify;
-  background-color: #f6f6f6;
   position: relative;
   color: #373737;
 }
@@ -105,7 +110,7 @@ section.active {
 .intro .divider:before, .intro .divider:after {
   content: "";
   position: absolute;
-  background-color: #f6f6f6;
+  background-color: #f4f4f4;
   height: 4em;
   width: 100%;
 }
@@ -137,22 +142,44 @@ section.active {
   background-color: #DCD0C0;
 }
 .about .content {
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
 }
 .about .about-copy {
   font-size: 1.5em;
   line-height: 2em;
-  width: 75%;
   height: auto;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
 }
 .about .craft,
 .about .about {
+  padding: 1.2em;
   margin: 1em auto;
+  position: relative;
+  opacity: 0;
+}
+.about .craft {
+  background-color: rgba(255, 255, 255, 0.5);
+  left: 100%;
+}
+.about .about {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  left: -110%;
+}
+.about.active .craft,
+.about.active .about {
+  opacity: 1;
+}
+.about.active .craft {
+  left: -4em;
+  transition: left 1s ease-in 0.5s, opacity 0.75s ease-in 1s;
+}
+.about.active .about {
+  left: 0;
+  transition: left 1s ease-in 0.5s, opacity 0.75s ease-in 1s;
 }
 
 .work {
@@ -245,41 +272,68 @@ section.active {
   overflow: hidden;
   opacity: 0;
 }
+.work .panel-1 .grid .project:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+}
 .work .panel-1 .grid .project:nth-of-type(1) {
-  background: #DADADA;
   grid-area: 7/7/11/10;
 }
+.work .panel-1 .grid .project:nth-of-type(1):before {
+  background: #f4f4f4;
+}
 .work .panel-1 .grid .project:nth-of-type(2) {
-  background: #313131;
   grid-area: 1/4/5/7;
 }
+.work .panel-1 .grid .project:nth-of-type(2):before {
+  background: #DCD0C0;
+}
 .work .panel-1 .grid .project:nth-of-type(3) {
-  background: #696969;
   grid-area: 1/7/4/10;
 }
+.work .panel-1 .grid .project:nth-of-type(3):before {
+  background: #C0B283;
+}
 .work .panel-1 .grid .project:nth-of-type(4) {
-  background: #D3D3D3;
   grid-area: 3/1/7/4;
 }
+.work .panel-1 .grid .project:nth-of-type(4):before {
+  background: #373737;
+}
 .work .panel-1 .grid .project:nth-of-type(5) {
-  background: #DCDCDC;
   grid-area: 5/4/8/7;
 }
+.work .panel-1 .grid .project:nth-of-type(5):before {
+  background: #f4f4f4;
+}
 .work .panel-1 .grid .project:nth-of-type(6) {
-  background: #B0B0B0;
   grid-area: 8/4/11/7;
 }
+.work .panel-1 .grid .project:nth-of-type(6):before {
+  background: #DCD0C0;
+}
 .work .panel-1 .grid .project:nth-of-type(7) {
-  background: #4A4A4A;
   grid-area: 7/1/11/4;
 }
+.work .panel-1 .grid .project:nth-of-type(7):before {
+  background: #C0B283;
+}
 .work .panel-1 .grid .project:nth-of-type(8) {
-  background: #F5F5F5;
   grid-area: 1/1/3/4;
 }
+.work .panel-1 .grid .project:nth-of-type(8):before {
+  background: #373737;
+}
 .work .panel-1 .grid .project:nth-of-type(9) {
-  background: #AAAAAA;
   grid-area: 4/7/7/10;
+}
+.work .panel-1 .grid .project:nth-of-type(9):before {
+  background: #373737;
 }
 .work .panel-1 .grid .project .front,
 .work .panel-1 .grid .project .back {
@@ -493,19 +547,23 @@ section.active {
 }
 .skills .skills-title {
   text-align: left;
-  font-size: 1.4em;
+  font-weight: 700;
+  font-size: 2em;
+  color: #373737;
+  text-transform: uppercase;
 }
 .skills .skills-list {
   height: 14em;
   color: #373737;
   padding: 2em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: center;
 }
 .skills .skill {
-  height: 1em;
+  height: 4em;
+  text-transform: uppercase;
   flex: 1;
   text-align: left;
 }
@@ -515,25 +573,54 @@ section.active {
 }
 .contact .content {
   margin: 0 auto;
-  width: 45em;
+  font-size: 1.5em;
+  display: flex;
+  height: 100%;
+}
+.contact .left-col,
+.contact .right-col {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.contact .contact-copy {
+  top: 30%;
+  position: relative;
+  text-align: left;
+  left: 0;
 }
 .contact .contact-me {
-  text-align: center;
+  font-weight: 700;
   display: block;
-  font-size: 3em;
-  margin-bottom: 3em;
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
 }
 .contact .sources {
   display: flex;
+  flex-direction: column;
+  width: 60%;
+  text-align: right;
+  top: 50%;
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+}
+.contact .source {
+  flex: 1;
+  margin: 1em;
+}
+.contact .source-copy {
+  font-family: "EB Garamond", serif;
+  font-size: 1.5em;
 }
 .contact .link {
-  flex: 1;
   position: relative;
 }
 .contact a {
   text-decoration: none;
   color: #c0b283;
-  text-align: center;
   display: block;
 }
 .contact a:after {
@@ -552,9 +639,9 @@ section.active {
   left: 0;
   background: #ccc;
 }
-.contact .source {
-  text-align: center;
-  font-size: 2em;
+.contact .source-link {
+  font-size: 1.5em;
+  text-transform: uppercase;
 }
 
 @media all and (max-width: 480px) {
@@ -571,17 +658,19 @@ section.active {
     transform: rotate(360deg);
   }
   .intro .subcopy {
-    width: 70%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
   }
   .intro .intro-name {
-    top: 20%;
+    top: 40%;
   }
   .intro .first,
 .intro .last {
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
   }
   .intro .divider:before, .intro .divider:after {
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
   }
 
   .work.shrink .panel-1 .grid {
@@ -628,6 +717,13 @@ section.active {
   .skills .skill {
     width: 100%;
     height: calc(100% / 12);
+  }
+
+  .contact .content {
+    flex-direction: column;
+  }
+  .contact .sources {
+    top: 20%;
   }
 }
 

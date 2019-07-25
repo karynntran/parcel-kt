@@ -11014,8 +11014,8 @@ var data = {
   },
   'about': {
     'title': 'Code is Craft.',
-    'craft': 'Growing up, my favorite activity was arts and crafts - painting, drawing, crocheting, cake decorating, you name it. I especially loved the idea of creating anything out of nothing: a blank canvas, a ball of yarn, a bowl of flour, sugar and butter. There\'s a formula you start with - certain brushstrokes or stitches or a recipe - but after that, anything creative goes. For me, code is the same way.',
-    'about': 'I\'m a software engineer with a focus on frontend. While I mainly write in Javascript and CSS today, I used to write stories. My career began in consumer research as a qualitative storyteller: I took hundreds of journeys through the lives of consumers and surfaced fascinating insights about their relationships with brands. Today, as an engineer, I strive to keep the user front and center, building engaging digital experiences through beautiful design, clean code, empathy and thoughtful user experience.',
+    'craft': '<span class="serif">Growing up</span>, my favorite activity was arts and crafts - painting, drawing, crocheting, cake decorating, you name it. I especially loved the idea of creating anything out of nothing: a blank canvas, a ball of yarn, a bowl of flour, sugar and butter. There\'s a formula you start with - certain brushstrokes or stitches or a recipe - but after that, anything creative goes. For me, code is the same way.',
+    'about': '<span class="serif">I\'m a software engineer with a focus on frontend.</span> While I mainly write in Javascript and CSS today, I used to write stories. My career began in consumer research as a qualitative storyteller: I took hundreds of journeys through the lives of consumers and surfaced fascinating insights about their relationships with brands. Today, as an engineer, I strive to keep the user front and center, building engaging digital experiences through beautiful design, clean code, empathy and thoughtful user experience.',
     'codeIs': ['creativity', 'craft', '']
   },
   'skills': {
@@ -11044,7 +11044,7 @@ var data = {
     }, {
       'project': '2',
       'hover': 'cartier',
-      'color': '#000',
+      'color': '#fff',
       'image': 'cartier.png',
       'company': 'Quartz Creative',
       'client': 'Cartier',
@@ -11092,7 +11092,7 @@ var data = {
     }, {
       'project': '5',
       'hover': 'citrix',
-      'color': '#000',
+      'color': '#fff',
       'image': 'citrix.png',
       'company': 'Quartz Creative',
       'client': 'Citrix',
@@ -11108,7 +11108,7 @@ var data = {
     }, {
       'project': '6',
       'hover': 'dit',
-      'color': '#000',
+      'color': '#fff',
       'image': 'dit.png',
       'company': 'Quartz Creative',
       'client': 'DIT',
@@ -11140,7 +11140,7 @@ var data = {
     }, {
       'project': '8',
       'hover': 'walmart',
-      'color': '#000',
+      'color': '#fff',
       'image': 'walmart.png',
       'company': 'Quartz Creative',
       'client': 'Walmart',
@@ -11172,15 +11172,19 @@ var data = {
     }]
   },
   contact: {
-    'copy': 'contact',
+    'copy': 'say hello',
+    'subcopy': 'Let\'s talk about how we can work together!',
     'sources': [{
       'source': 'linkedin',
+      'sourceCopy': 'see where i\'ve worked',
       'link': 'https://www.linkedin.com/in/karynneliotran/'
     }, {
       'source': 'github',
+      'sourceCopy': 'check out my code',
       'link': 'https://github.com/karynntran'
     }, {
       'source': 'email',
+      'sourceCopy': 'drop me a note',
       'link': 'mailto:karynn.tran@gmail.com?subject=Hi Karynn, saying hey from your website!'
     }]
   }
@@ -11207,7 +11211,7 @@ var intro = function intro(data) {
 exports.intro = intro;
 
 var about = function about(data) {
-  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"about-copy\">\n\t\t\t\t<div class=\"craft\">".concat(data.craft, "</div>\n\t\t\t\t<div class=\"about\">").concat(data.about, "</div>\n\t\t\t</div>\n\t\t</div>");
+  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"about-copy\">\n\t\t\t\t<div class=\"copy craft\">".concat(data.craft, "</div>\n\t\t\t\t<div class=\"copy about\">").concat(data.about, "</div>\n\t\t\t</div>\n\t\t</div>");
 };
 
 exports.about = about;
@@ -11236,9 +11240,9 @@ var workDescription = function workDescription(data) {
 exports.workDescription = workDescription;
 
 var contact = function contact(data) {
-  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"contact-me\">contact me!</div>\n\t\t\t<div class=\"sources\">\n\t\t\t\t".concat(data.sources.map(function (s, idx) {
-    return "<div class=\"link\">\n\t\t\t\t\t\t<a href=\"".concat(s.link, "\" class=\"source\" target=\"_blank\">").concat(s.source, "</a>\n\t\t\t\t\t</div>");
-  }).join(''), "\n\t\t\t</div>\n\t\t</div>");
+  return "\n\t\t<div class=\"content\">\n\t\t\t<div class=\"left-col\">\n\t\t\t\t<div class=\"contact-copy\">\n\t\t\t\t\t<div class=\"contact-me\">".concat(data.copy, "</div>\n\t\t\t\t\t<div class=\"contact-me-subcopy\">").concat(data.subcopy, "</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"right-col\">\n\t\t\t\t<div class=\"sources\">\n\t\t\t\t\t").concat(data.sources.map(function (s, idx) {
+    return "<div class=\"source\">\n\t\t\t\t\t\t\t<div class=\"source-copy\">".concat(s.sourceCopy, "</div>\n\t\t\t\t\t\t\t<div class=\"link\">\n\t\t\t\t\t\t\t\t<a href=\"").concat(s.link, "\" class=\"source-link\" target=\"_blank\">").concat(s.source, "</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>");
+  }).join(''), "\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>");
 };
 
 exports.contact = contact;

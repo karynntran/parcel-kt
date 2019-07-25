@@ -23,8 +23,8 @@ const about = (data) => {
 	return `
 		<div class="content">
 			<div class="about-copy">
-				<div class="craft">${data.craft}</div>
-				<div class="about">${data.about}</div>
+				<div class="copy craft">${data.craft}</div>
+				<div class="copy about">${data.about}</div>
 			</div>
 		</div>`
 }
@@ -90,13 +90,23 @@ const workDescription = (data) => {
 const contact = (data) => {
 	return `
 		<div class="content">
-			<div class="contact-me">contact me!</div>
-			<div class="sources">
-				${data.sources.map((s,idx) => {
-					return `<div class="link">
-						<a href="${s.link}" class="source" target="_blank">${s.source}</a>
-					</div>`
-				}).join('')}
+			<div class="left-col">
+				<div class="contact-copy">
+					<div class="contact-me">${data.copy}</div>
+					<div class="contact-me-subcopy">${data.subcopy}</div>
+				</div>
+			</div>
+			<div class="right-col">
+				<div class="sources">
+					${data.sources.map((s,idx) => {
+						return `<div class="source">
+							<div class="source-copy">${s.sourceCopy}</div>
+							<div class="link">
+								<a href="${s.link}" class="source-link" target="_blank">${s.source}</a>
+							</div>
+						</div>`
+					}).join('')}
+				</div>
 			</div>
 		</div>`
 }

@@ -4,8 +4,8 @@ const data = {
 	},
 	'about': {
 		'title': 'Code is Craft.',
-		'craft': 'Growing up, my favorite activity was arts and crafts - painting, drawing, crocheting, cake decorating, you name it. I especially loved the idea of creating anything out of nothing: a blank canvas, a ball of yarn, a bowl of flour, sugar and butter. There\'s a formula you start with - certain brushstrokes or stitches or a recipe - but after that, anything creative goes. For me, code is the same way.',
-		'about': 'I\'m a software engineer with a focus on frontend. While I mainly write in Javascript and CSS today, I used to write stories. My career began in consumer research as a qualitative storyteller: I took hundreds of journeys through the lives of consumers and surfaced fascinating insights about their relationships with brands. Today, as an engineer, I strive to keep the user front and center, building engaging digital experiences through beautiful design, clean code, empathy and thoughtful user experience.',
+		'craft': '<span class="serif">Growing up</span>, my favorite activity was arts and crafts - painting, drawing, crocheting, cake decorating, you name it. I especially loved the idea of creating anything out of nothing: a blank canvas, a ball of yarn, a bowl of flour, sugar and butter. There\'s a formula you start with - certain brushstrokes or stitches or a recipe - but after that, anything creative goes. For me, code is the same way.',
+		'about': '<span class="serif">I\'m a software engineer with a focus on frontend.</span> While I mainly write in Javascript and CSS today, I used to write stories. My career began in consumer research as a qualitative storyteller: I took hundreds of journeys through the lives of consumers and surfaced fascinating insights about their relationships with brands. Today, as an engineer, I strive to keep the user front and center, building engaging digital experiences through beautiful design, clean code, empathy and thoughtful user experience.',
 		'codeIs': [
 			'creativity',
 			'craft',
@@ -53,7 +53,7 @@ const data = {
 			{
 				'project': '2',
 				'hover': 'cartier',
-				'color': '#000',
+				'color': '#fff',
 				'image': 'cartier.png',
 				'company': 'Quartz Creative',
 				'client': 'Cartier',
@@ -104,7 +104,7 @@ const data = {
 			{
 				'project': '5',
 				'hover': 'citrix',
-				'color': '#000',
+				'color': '#fff',
 				'image': 'citrix.png',
 				'company': 'Quartz Creative',
 				'client': 'Citrix',
@@ -121,7 +121,7 @@ const data = {
 			{
 				'project': '6',
 				'hover': 'dit',
-				'color': '#000',
+				'color': '#fff',
 				'image': 'dit.png',
 				'company': 'Quartz Creative',
 				'client': 'DIT',
@@ -155,7 +155,7 @@ const data = {
 			{
 				'project': '8',
 				'hover': 'walmart',
-				'color': '#000',
+				'color': '#fff',
 				'image': 'walmart.png',
 				'company': 'Quartz Creative',
 				'client': 'Walmart',
@@ -189,18 +189,22 @@ const data = {
 		]
 	},
 	contact: {
-		'copy': 'contact',
+		'copy': 'say hello',
+		'subcopy': 'Let\'s talk about how we can work together!',
 		'sources': [
 			{
 				'source': 'linkedin',
+				'sourceCopy': 'see where i\'ve worked',
 				'link': 'https://www.linkedin.com/in/karynneliotran/',
 			},
 			{
 				'source': 'github',
+				'sourceCopy': 'check out my code',
 				'link': 'https://github.com/karynntran'
 			},
 			{
 				'source': 'email',
+				'sourceCopy': 'drop me a note',
 				'link': 'mailto:karynn.tran@gmail.com?subject=Hi Karynn, saying hey from your website!'
 			},
 		]
